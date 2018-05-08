@@ -3,8 +3,18 @@ tar -zxvf php-7.2.5.tar.gz
 
 yum install -y libzookeeper gperftools-libs libxml2-devel gd-devel curl-devel pcre-devel librdkafka-devel librabbitmq-devel GraphicsMagick-devel hiredis-devel libmemcached-devel protobuf-devel leveldb-devel
 
+cd php-7.2.5
 ./configure --prefix=/opt/php --with-config-file-path=/opt/php/etc --with-zlib --enable-wddx --with-gd --enable-shared --enable-mysqlnd --enable-embedded-mysqli --with-iconv --enable-shmop --enable-inline-optimization --enable-mbregex --enable-fpm --enable-mbstring --with-openssl --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --with-gettext --enable-session --with-curl --with-fpm-user=nobody --with-fpm-group=nobody --enable-exif --enable-opcache --enable-xml --enable-ldap --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-bcmath --disable-fileinfo
- 
+
+cd ext
+cd ldap
+/opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config && make && make install
+cd ../sysvmsg
+/opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config && make && make install
+cd ../sysvshm
+/opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config && make && make install
+
+
 make && make install
 
 /opt/php/bin/pecl install mongodb ds protobuf zookeeper grpc msgpack stomp rdkafka SeasLog memcached redis yac yaconf yar yaf leveldb gmagick

@@ -6,8 +6,6 @@ yaconf
 redis
 memcached
 SeasLog
-phptrace
-QConf
 rdkafka
 amqp
 stomp
@@ -22,3 +20,4 @@ mongodb
 leveldb
 lz4
 monip
+phone

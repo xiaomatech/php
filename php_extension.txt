@@ -7,7 +7,7 @@ redis
 memcached
 SeasLog
 rdkafka
-amqp
+Molten
 stomp
 xhprof
 zan

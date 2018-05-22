@@ -25,6 +25,9 @@ wget https://github.com/shukean/monip/archive/php7.zip -O monip.zip
 wget https://github.com/youzan/zan/archive/v3.1.0.zip -O zan.zip
 wget https://github.com/php-zookeeper/php-zookeeper/archive/master.zip -O php-zookeeper.zip
 wget https://github.com/jonnywang/phone/archive/master.zip -O phone.zip
+wget https://github.com/chuan-yun/Molten/archive/master.zip -O Molten.zip
+
+unzip Molten.zip && cd Molten-master && /opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config --enable-zipkin-header=yes && make && make install
 unzip monip.zip && cd monip-php7 && /opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config && make && make install
 unzip phone.zip && cd phone-master && /opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config && make && make install
 unzip zan.zip && cd zan-3.1.0/zan-extension && /opt/php/bin/phpize && ./configure --with-php-config=/opt/php/bin/php-config --enable-openssl --enable-async-redis --enable-jemalloc --enable-zan --enable-mysqlnd && make && make install
